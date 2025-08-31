@@ -23,7 +23,6 @@ export default defineConfig(({ mode }) => ({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
-  base: "/jewelry-store/", // if deploying to username.github.io/repo-name
 }));
 
 function expressPlugin(): Plugin {
