@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => ({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
+  base: "/",
 }));
 
 function expressPlugin(): Plugin {
