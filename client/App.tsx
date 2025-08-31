@@ -12,6 +12,7 @@ import CollectionsPage from "./pages/Collections";
 import CartPage from "./pages/Cart";
 import ShopPage from "./pages/Shop";
 import Contact from "./pages/Contact";
+import ProductDetail from "./pages/ProductDetail";
 import RootLayout from "@/components/layout/RootLayout";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/" element={<RootLayout />}>
               <Route index element={<Index />} />
               <Route path="shop" element={<ShopPage />} />
+              <Route path="products/:id" element={<ProductDetail />} />
               <Route path="collections" element={<CollectionsPage />} />
               <Route path="cart" element={<CartPage />} />
               <Route path="about" element={<Placeholder />} />
