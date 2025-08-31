@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useCart } from "@/state/cart";
+import { Link } from "react-router-dom";
 
 export type Product = {
   id: string;
@@ -26,14 +27,17 @@ export function ProductCard({
         className,
       )}
     >
-      <div className="aspect-[4/5] md:aspect-square overflow-hidden">
+      <Link
+        to={`/products/${product.id}`}
+        className="aspect-[4/5] md:aspect-square overflow-hidden block"
+      >
         <img
           src={product.image}
           alt={product.name}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           loading="lazy"
         />
-      </div>
+      </Link>
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">
           <div>

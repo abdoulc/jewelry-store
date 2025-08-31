@@ -45,7 +45,7 @@ export function Header() {
           <div className="flex items-center gap-8">
             <Link to="/" className="group inline-flex items-center gap-2">
               <span className="text-2xl font-semibold tracking-wide leading-none font-brandSerif">
-                Auréole
+                Obiang-Bijoux
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6">
@@ -127,7 +127,7 @@ export function Header() {
 
           <Link to="/" className="justify-self-center">
             <span className="text-2xl font-semibold tracking-wide leading-none font-brandSerif">
-              Auréole
+              Obiang-Bijoux
             </span>
           </Link>
 

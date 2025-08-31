@@ -24,6 +24,14 @@ export default function ShopPage() {
   const max = Number(params.get("max") ?? "");
 
   useEffect(() => {
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    } catch {
+      // noop
+    }
+  }, []);
+
+  useEffect(() => {
     const t = setTimeout(() => {
       const next = new URLSearchParams(params);
       if (q) next.set("q", q);
