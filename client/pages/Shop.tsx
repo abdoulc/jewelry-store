@@ -26,7 +26,8 @@ export default function ShopPage() {
   useEffect(() => {
     const t = setTimeout(() => {
       const next = new URLSearchParams(params);
-      if (q) next.set("q", q); else next.delete("q");
+      if (q) next.set("q", q);
+      else next.delete("q");
       setParams(next, { replace: true });
     }, 250);
     return () => clearTimeout(t);
@@ -35,8 +36,10 @@ export default function ShopPage() {
   const filtered: ProductWithMeta[] = useMemo(() => {
     let list = PRODUCTS.slice();
     if (category !== "all") list = list.filter((p) => p.category === category);
-    if (!Number.isNaN(min) && min > 0) list = list.filter((p) => p.price >= min);
-    if (!Number.isNaN(max) && max > 0) list = list.filter((p) => p.price <= max);
+    if (!Number.isNaN(min) && min > 0)
+      list = list.filter((p) => p.price >= min);
+    if (!Number.isNaN(max) && max > 0)
+      list = list.filter((p) => p.price <= max);
     if (q) {
       const s = q.toLowerCase();
       list = list.filter((p) => p.name.toLowerCase().includes(s));
@@ -62,7 +65,8 @@ export default function ShopPage() {
 
   const setParam = (key: string, value: string) => {
     const next = new URLSearchParams(params);
-    if (value) next.set(key, value); else next.delete(key);
+    if (value) next.set(key, value);
+    else next.delete(key);
     setParams(next);
   };
 
@@ -71,15 +75,17 @@ export default function ShopPage() {
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h1 className="font-brandSerif text-4xl md:text-5xl">Shop</h1>
-          <p className="mt-2 text-foreground/70">Browse all pieces with filters, sorting, and quick add.</p>
+          <p className="mt-2 text-foreground/70">
+            Browse all pieces with filters, sorting, and quick add.
+          </p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="w-full grid gap-3 sm:grid-cols-2 md:flex md:flex-wrap md:items-center">
           <div className="flex items-center gap-2">
             <label className="text-sm">Sort</label>
             <select
               value={sort}
               onChange={(e) => setParam("sort", e.target.value)}
-              className="h-10 rounded-md border bg-background px-3 text-sm"
+              className="h-10 rounded-md border bg-background px-3 text-sm w-full md:w-auto"
             >
               {SORTS.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -92,7 +98,7 @@ export default function ShopPage() {
             <label className="text-sm">Min</label>
             <input
               type="number"
-              className="h-10 w-24 rounded-md border px-2 text-sm"
+              className="h-10 w-full md:w-24 rounded-md border px-2 text-sm"
               value={Number.isNaN(min) ? "" : min}
               onChange={(e) => setParam("min", e.target.value)}
               placeholder="0"
@@ -100,7 +106,7 @@ export default function ShopPage() {
             <label className="text-sm">Max</label>
             <input
               type="number"
-              className="h-10 w-24 rounded-md border px-2 text-sm"
+              className="h-10 w-full md:w-24 rounded-md border px-2 text-sm"
               value={Number.isNaN(max) ? "" : max}
               onChange={(e) => setParam("max", e.target.value)}
               placeholder="3000"
@@ -110,17 +116,19 @@ export default function ShopPage() {
             placeholder="Search products"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            className="h-10 rounded-md border bg-background px-3 text-sm min-w-[220px]"
+            className="h-10 rounded-md border bg-background px-3 text-sm w-full md:min-w-[220px]"
           />
         </div>
       </div>
 
-      <div className="mb-5 flex gap-2 overflow-x-auto">
+      <div className="mb-5 flex flex-wrap gap-2">
         <button
           onClick={() => setParam("category", "all")}
           className={cn(
-            "whitespace-nowrap rounded-full border px-3 py-1.5 text-sm",
-            category === "all" ? "bg-primary text-primary-foreground border-primary" : "hover:bg-accent",
+            "whitespace-nowrap rounded-full border px-3 py-1.5 text-sm flex-1 text-center sm:flex-none",
+            category === "all"
+              ? "bg-primary text-primary-foreground border-primary"
+              : "hover:bg-accent",
           )}
         >
           All
@@ -130,8 +138,10 @@ export default function ShopPage() {
             key={c.id}
             onClick={() => setParam("category", c.id)}
             className={cn(
-              "whitespace-nowrap rounded-full border px-3 py-1.5 text-sm",
-              category === c.id ? "bg-primary text-primary-foreground border-primary" : "hover:bg-accent",
+              "whitespace-nowrap rounded-full border px-3 py-1.5 text-sm flex-1 text-center sm:flex-none",
+              category === c.id
+                ? "bg-primary text-primary-foreground border-primary"
+                : "hover:bg-accent",
             )}
           >
             {c.title}
@@ -139,10 +149,12 @@ export default function ShopPage() {
         ))}
       </div>
 
-      <div className="flex items-center justify-between text-sm text-foreground/70 mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm text-foreground/70 mb-4">
         <span>
           Showing {filtered.length} {filtered.length === 1 ? "item" : "items"}
-          {category !== "all" ? ` in ${CATEGORIES.find((c) => c.id === category)?.title}` : ""}
+          {category !== "all"
+            ? ` in ${CATEGORIES.find((c) => c.id === category)?.title}`
+            : ""}
         </span>
         <button
           className="underline hover:no-underline"
