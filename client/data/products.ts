@@ -71,9 +71,9 @@ export const PRODUCTS: ProductWithMeta[] = [
   {
     id: "neck-aurora",
     name: "Aurora Pendant Necklace",
-    price: 560,
+    price: 596,
     image:
-      "https://images.pexels.com/photos/29709631/pexels-photo-29709631.jpeg",
+      "https://images.pexels.com/photos/14111392/pexels-photo-14111392.jpeg",
     images: [
       "https://images.pexels.com/photos/14111392/pexels-photo-14111392.jpeg",
       "https://images.pexels.com/photos/29193428/pexels-photo-29193428.jpeg",
@@ -90,7 +90,6 @@ export const PRODUCTS: ProductWithMeta[] = [
       "https://images.pexels.com/photos/14111392/pexels-photo-14111392.jpeg",
     images: [
       "https://images.pexels.com/photos/14111392/pexels-photo-14111392.jpeg",
-      "https://images.pexels.com/photos/29709631/pexels-photo-29709631.jpeg",
       "https://images.pexels.com/photos/29193428/pexels-photo-29193428.jpeg",
     ],
     category: "necklaces",
@@ -134,7 +133,6 @@ export const PRODUCTS: ProductWithMeta[] = [
       "https://images.pexels.com/photos/29193428/pexels-photo-29193428.jpeg",
     images: [
       "https://images.pexels.com/photos/29193428/pexels-photo-29193428.jpeg",
-      "https://images.pexels.com/photos/29709631/pexels-photo-29709631.jpeg",
       "https://images.pexels.com/photos/14111392/pexels-photo-14111392.jpeg",
     ],
     category: "pendants",
@@ -163,7 +161,6 @@ export const PRODUCTS: ProductWithMeta[] = [
     images: [
       "https://images.pexels.com/photos/8306531/pexels-photo-8306531.jpeg",
       "https://images.pexels.com/photos/10799227/pexels-photo-10799227.jpeg",
-      "https://images.pexels.com/photos/29709631/pexels-photo-29709631.jpeg",
     ],
     category: "bridal",
     createdAt: "2024-12-22",
